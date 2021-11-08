@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
-import firebase from "../database/firebase";
+import firebase from "../../database/firebase";
 
 const UserDetailScreen = (props) => {
   const initialState = {

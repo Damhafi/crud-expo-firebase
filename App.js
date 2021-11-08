@@ -4,14 +4,15 @@ import { StyleSheet } from "react-native";
 
 // Navigation
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Components
-import CreateUserScreen from "./src/screens/CreateUserScreen";
-import UserDetailScreen from "./src/screens/UserDetailScreen";
-import UsersList from "./src/screens/UsersList";
+import CreateUserScreen from "./src/screens/usuarios/CreateUserScreen";
+import UserDetailScreen from "./src/screens/usuarios/UserDetailScreen";
+import UsersList from "./src/screens/usuarios/UsersList";
+import { Entypo, Feather } from "@expo/vector-icons";
 
-const Stack = createStackNavigator();
+const Stack = createBottomTabNavigator();
 
 function MyStack() {
   return (
@@ -29,17 +30,32 @@ function MyStack() {
       <Stack.Screen
         name="UsersList"
         component={UsersList}
-        options={{ title: "Users List" }}
+        options={{ 
+          title: "Lista de Emrpesas",
+          tabBarIcon: ({ size, color}) =>(
+            <Entypo name="UsersList" size={size} color={color}/>
+          ) 
+        }}
       />
       <Stack.Screen
         name="CreateUserScreen"
         component={CreateUserScreen}
-        options={{ title: "Create a New User" }}
+        options={{ 
+          title: "Criar nova Empresa",
+          tabBarIcon: ({ size, color}) =>(
+            <Entypo name="" size={size} color={color}/>
+          )        
+        }}
       />
       <Stack.Screen
         name="UserDetailScreen"
         component={UserDetailScreen}
-        options={{ title: "User Detail" }}
+        options={{ 
+          title: "Detalhe da Empresa",
+          tabBarIcon: ({ size, color}) =>(
+            <Feather name="user" size={size} color={color}/>
+          )
+        }}
       />
     </Stack.Navigator>
   );
